@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camille Rousseau — Photographe portraitiste, Lyon</title>
+<meta name="description" content="Photographe portraitiste basée à Lyon. Portraits intimistes, séances éditoriales et reportages d'auteur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f1ea;
+    --cream-soft: #ebe6dc;
+    --ink: #1a1814;
+    --ink-soft: #4a4640;
+    --accent: #8b3a2b;
+    --line: rgba(26, 24, 20, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+
+  /* --- NAVIGATION --- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 241, 234, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    font-style: italic;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links a:hover { opacity: 0.5; }
+
+  .nav-cta {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-cta:hover { opacity: 0.5; }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-text {
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--ink-soft);
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2rem;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    max-width: 480px;
+    color: var(--ink-soft);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1.1rem 2.2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 4px;
+  }
+
+  .hero-image {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  /* --- SECTION INTRO --- */
+  .intro {
+    padding: 7rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .intro-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--ink);
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+
+  .intro-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    line-height: 1.35;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    max-width: 900px;
+  }
+
+  .intro-text em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* --- GALERIE --- */
+  .gallery {
+    padding: 4rem 3rem 8rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .gallery-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .gallery-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .gallery-meta {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .gallery-rows-wrapper {
+    display: block;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: grayscale(10%);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.04);
+    filter: grayscale(0%);
+  }
+
+  .gallery-item-overlay {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    color: var(--cream);
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+  }
+
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-item-overlay h3 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  .gallery-item-overlay p {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .gallery-item:hover::after { opacity: 1; }
+
+  /* Layouts asymétriques de la galerie — hauteurs harmonisées par rangée */
+  .gallery-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .gallery-row:last-child { margin-bottom: 0; }
+
+  .gi-1 { grid-column: span 7; height: 60vh; }
+  .gi-2 { grid-column: span 5; height: 60vh; }
+  .gi-3 { grid-column: span 5; height: 55vh; }
+  .gi-4 { grid-column: span 7; height: 55vh; }
+  .gi-5 { grid-column: span 6; height: 65vh; }
+  .gi-6 { grid-column: span 6; height: 65vh; }
+
+  /* --- SERVICES --- */
+  .services {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 8rem 3rem;
+  }
+
+  .services-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    margin-bottom: 5rem;
+    max-width: 700px;
+  }
+
+  .services-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(245, 241, 234, 0.6);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .services h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .services h2 em {
+    font-style: italic;
+    color: #d4856b;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(245, 241, 234, 0.15);
+  }
+
+  .service {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid rgba(245, 241, 234, 0.15);
+    border-bottom: 1px solid rgba(245, 241, 234, 0.15);
+    transition: background 0.4s ease;
+  }
+
+  .service:nth-child(3n) { border-right: none; }
+  .service:hover { background: rgba(245, 241, 234, 0.03); }
+
+  .service-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(245, 241, 234, 0.5);
+    margin-bottom: 2rem;
+  }
+
+  .service h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .service p {
+    color: rgba(245, 241, 234, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .service-price {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #d4856b;
+  }
+
+  /* --- A PROPOS --- */
+  .about {
+    padding: 8rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+  }
+
+  .about-content h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-content h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .about-signature {
+    margin-top: 3rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent);
+  }
+
+  /* --- TEMOIGNAGES --- */
+  .testimonials {
+    background: var(--cream-soft);
+    padding: 8rem 3rem;
+  }
+
+  .testimonials-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .testimonial {
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .testimonial-quote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.4;
+    font-style: italic;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+
+  .testimonial-quote::before {
+    content: '"';
+    font-size: 4rem;
+    line-height: 0;
+    vertical-align: -0.4em;
+    color: var(--accent);
+    margin-right: 0.2rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .testimonial-author strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* --- CONTACT --- */
+  .contact {
+    padding: 8rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .contact h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+  }
+
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-form {
+    text-align: left;
+    margin-top: 4rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+    padding: 0.5rem 0 0.8rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+  }
+
+  .form-field-full { margin-bottom: 2rem; }
+
+  .form-submit {
+    margin-top: 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.3s ease;
+  }
+
+  .form-submit:hover { background: var(--accent); }
+
+  /* --- FOOTER --- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  footer .logo { font-size: 1.1rem; }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* --- ANIMATIONS --- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease 0.1s both; }
+  .hero h1 { animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-sub { animation: fadeUp 0.8s ease 0.4s both; }
+  .hero-actions { animation: fadeUp 0.8s ease 0.6s both; }
+  .hero-image { animation: fadeUp 1s ease 0.3s both; }
+
+  /* --- MOBILE --- */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 7rem 1.5rem 3rem;
+      gap: 2rem;
+    }
+
+    .hero-image { height: 60vh; }
+
+    .intro {
+      padding: 5rem 1.5rem;
+    }
+
+    .intro-label {
+      margin-bottom: 2rem;
+    }
+
+    .gallery { padding: 2rem 1.5rem 5rem; }
+
+    .gallery-header {
+      flex-direction: column;
+      align-items: start;
+      gap: 1rem;
+    }
+
+    .gallery-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .gi-1, .gi-2, .gi-3, .gi-4, .gi-5, .gi-6 {
+      grid-column: span 1;
+      height: 60vh;
+    }
+
+    .services { padding: 5rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service { border-right: none !important; }
+
+    .about {
+      grid-template-columns: 1fr;
+      padding: 5rem 1.5rem;
+      gap: 3rem;
+    }
+
+    .testimonials { padding: 5rem 1.5rem; }
+    .contact { padding: 5rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    footer {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Camille Rousseau</div>
+  <ul class="nav-links">
+    <li><a href="#work">Travaux</a></li>
+    <li><a href="#services">Séances</a></li>
+    <li><a href="#about">À propos</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Réserver</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">Photographe portraitiste · Lyon</span>
+    <h1>Le portrait,<br>comme un <em>silence</em><br>partagé.</h1>
+    <p class="hero-sub">
+      Je photographie les gens dans ce qu'ils ont de plus simple et de plus juste. Studio ou lumière naturelle, à Lyon et partout en France.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Réserver une séance</a>
+      <a href="#work" class="btn-secondary">Voir le travail</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" alt="Portrait en lumière naturelle">
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <span class="intro-label">Manifeste</span>
+  <p class="intro-text">
+    Un bon portrait ne <em>capture</em> pas, il <em>écoute</em>. C'est l'instant où la personne arrête de poser et commence simplement à <em>être</em>. C'est ce moment-là que je cherche.
+  </p>
+</section>
+
+<!-- GALERIE -->
+<section class="gallery" id="work">
+  <div class="gallery-header">
+    <h2>Travaux <em>récents</em></h2>
+    <span class="gallery-meta">Sélection · 2024 — 2026</span>
+  </div>
+  <div class="gallery-rows-wrapper">
+    <div class="gallery-row">
+      <div class="gallery-item gi-1">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80" alt="Marie, comédienne">
+        <div class="gallery-item-overlay">
+          <h3>Marie</h3>
+          <p>Portrait éditorial · 2025</p>
+        </div>
+      </div>
+      <div class="gallery-item gi-2">
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=1000&q=80" alt="Antoine, chef cuisinier">
+        <div class="gallery-item-overlay">
+          <h3>Antoine</h3>
+          <p>Portrait professionnel · 2025</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-row">
+      <div class="gallery-item gi-3">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1000&q=80" alt="Léa, auteure">
+        <div class="gallery-item-overlay">
+          <h3>Léa</h3>
+          <p>Portrait d'auteur · 2025</p>
+        </div>
+      </div>
+      <div class="gallery-item gi-4">
+        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=1400&q=80" alt="Étude de lumière">
+        <div class="gallery-item-overlay">
+          <h3>Étude</h3>
+          <p>Recherche personnelle · 2024</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-row">
+      <div class="gallery-item gi-5">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1200&q=80" alt="Sophie, chanteuse">
+        <div class="gallery-item-overlay">
+          <h3>Sophie</h3>
+          <p>Portrait artistique · 2026</p>
+        </div>
+      </div>
+      <div class="gallery-item gi-6">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80" alt="Thomas, architecte">
+        <div class="gallery-item-overlay">
+          <h3>Thomas</h3>
+          <p>Portrait corporate · 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <span class="services-eyebrow">Trois manières de travailler ensemble</span>
+      <h2>Chaque séance,<br>une <em>rencontre</em>.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-num">— 01</div>
+        <h3>Portrait intime</h3>
+        <p>Une heure, un lieu, une lumière. Pour celles et ceux qui veulent une image juste d'eux-mêmes, sans artifice. Studio à Lyon ou extérieur.</p>
+        <div class="service-price">à partir de 280 €</div>
+      </div>
+      <div class="service">
+        <div class="service-num">— 02</div>
+        <h3>Portrait professionnel</h3>
+        <p>Une séance soignée pour votre site, votre presse, votre signature. Direction d'image, retouche, livraison HD en moins d'une semaine.</p>
+        <div class="service-price">à partir de 450 €</div>
+      </div>
+      <div class="service">
+        <div class="service-num">— 03</div>
+        <h3>Série éditoriale</h3>
+        <p>Un projet sur mesure, sur plusieurs séances ou plusieurs lieux. Pour un livre, une marque, une exposition. Devis sur conversation.</p>
+        <div class="service-price">sur devis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A PROPOS -->
+<section class="about" id="about">
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=900&q=80" alt="Camille Rousseau">
+  </div>
+  <div class="about-content">
+    <h2>Le visage<br>est un <em>paysage</em>.</h2>
+    <p>
+      Je m'appelle Camille. J'ai grandi entre Lyon et la Drôme, et la photographie m'est venue tard — j'avais d'abord étudié les lettres modernes, ce qui explique sans doute mon goût pour les portraits qui racontent quelque chose.
+    </p>
+    <p>
+      Aujourd'hui, je travaille en argentique et en numérique, en studio comme en lumière naturelle. Mes images ont été publiées dans Polka, Causette, et Lyon Capitale. Ma démarche reste la même depuis le premier jour : prendre le temps, écouter, photographier ce qui reste quand le sujet a oublié l'appareil.
+    </p>
+    <div class="about-signature">— Camille</div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGE -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonial">
+      <p class="testimonial-quote">
+        Camille a cette qualité rare de savoir se faire oublier derrière l'objectif. Mes portraits ne ressemblent à rien de ce qu'on m'avait fait avant — ils me ressemblent enfin.
+      </p>
+      <p class="testimonial-author"><strong>Marie L.</strong> · Comédienne, Lyon</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <span class="contact-eyebrow">Réserver · Échanger · Imaginer</span>
+  <h2>Parlons de votre<br><em>projet</em>.</h2>
+  <p style="color: var(--ink-soft); max-width: 600px; margin: 0 auto;">
+    Toutes les séances commencent par un échange — pour comprendre ce que vous cherchez, et voir si ma manière de travailler vous correspond.
+  </p>
+
+  <div class="contact-form">
+    <div class="form-row">
+      <div class="form-field">
+        <label for="name">Prénom & nom</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label for="type">Type de séance</label>
+        <select id="type" name="type">
+          <option>Portrait intime</option>
+          <option>Portrait professionnel</option>
+          <option>Série éditoriale</option>
+          <option>Je ne sais pas encore</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="date">Période souhaitée</label>
+        <input type="text" id="date" name="date" placeholder="Ex. courant juillet">
+      </div>
+    </div>
+    <div class="form-field form-field-full">
+      <label for="message">Votre projet, en quelques mots</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+    </div>
+    <button type="button" class="form-submit" onclick="alert('Démonstration — formulaire non connecté.');">Envoyer ma demande</button>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Camille Rousseau</div>
+  <div class="footer-links">
+    <a href="mailto:hello@camillerousseau.fr">hello@camillerousseau.fr</a>
+    <a href="#">Instagram</a>
+    <a href="#">Mentions légales</a>
+  </div>
+  <div>© 2026 — Tous droits réservés</div>
+</footer>
+
+</body>
+</html>
